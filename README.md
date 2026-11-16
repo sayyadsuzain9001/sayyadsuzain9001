@@ -26,8 +26,12 @@
 ## 🛠️ Tech stack
 
 <p align="center">
-  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=py,pytorch,sklearn,tensorflow,dart,flutter,kotlin,androidstudio&perline=8" alt="ML and mobile"/></a><br/>
-  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=firebase,js,html,css,git,github,vscode,windows&perline=8" alt="Tools"/></a>
+  <b>Languages</b><br/>
+  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=py,c,cpp,r,kotlin,dart,html&perline=7" alt="Python, C, C++, R, Kotlin, Dart, HTML"/></a><br/><br/>
+  <b>ML &amp; Apps</b><br/>
+  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=pytorch,sklearn,tensorflow,flutter,androidstudio,firebase&perline=6" alt="PyTorch, scikit-learn, TensorFlow, Flutter, Android Studio, Firebase"/></a><br/><br/>
+  <b>Tools</b><br/>
+  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=git,github,vscode,windows,linux&perline=5" alt="Git, GitHub, VS Code, Windows, Linux"/></a>
 </p>
 
 ## 🚀 Featured projects
