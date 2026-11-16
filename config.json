@@ -7,13 +7,13 @@
       ["OS", "Windows 11, Android, Linux"],
       ["Uptime", "{uptime}"],
       ["Host", "SGU Kolhapur · INTI Malaysia (exchange)"],
-      ["Kernel", "B.Tech AI & ML · Tech Co-Head, AIMLSA"],
+      ["Kernel", "B.Tech AI & ML · ML Intern @ Unlox"],
       ["IDE", "VS Code, Android Studio, Jupyter"]
     ],
     [
       ["Languages.Programming", "Python, C, C++, R, Kotlin, Dart"],
       ["Languages.Computer", "HTML, CSS, JSON, YAML, SQL"],
-      ["Languages.Real", "English, Hindi, Marathi"]
+      ["Languages.Real", "English, Hindi, Marathi, Urdu"]
     ],
     [
       ["Focus.AI", "NLP, Transformers, RecSys"],
