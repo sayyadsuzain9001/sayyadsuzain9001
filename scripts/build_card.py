@@ -82,7 +82,8 @@ def uptime(bday):
 def collect():
     _, user = api(f"/users/{LOGIN}")
     _, repos = api(f"/users/{LOGIN}/repos?per_page=100&type=owner&sort=pushed")
-    own = [r for r in repos if not r["fork"] and r["name"].lower() != LOGIN.lower()]
+    this_repo = os.environ.get("GITHUB_REPOSITORY", "").split("/")[-1].lower()  # skip the profile repo itself
+    own = [r for r in repos if not r["fork"] and r["name"].lower() not in (LOGIN.lower(), this_repo)]
     commits = adds = dels = 0
     for r in own:
         c, a, d = contributor_stats(r["name"])
@@ -146,21 +147,23 @@ def build_lines(s):
 
 def svg(theme, lines, ascii_rows):
     t = THEMES[theme]
-    lh, fs, cw = 20, 16, 9.6  # line height, font size, monospace char width
+    lh, fs, cw = 20, 16, 9.6  # info text: line height, font size, char width
+    # The portrait uses a smaller font so it gets more "pixels" while matching the info column's height.
     ascii_cols = max(len(r) for r in ascii_rows)
-    ax, tx = 15, 15 + (ascii_cols + 2) * cw
-    rows = max(len(lines), len(ascii_rows))
-    w, h = int(tx + WIDTH * cw + 15), rows * lh + 25
-    ay = 30 + (rows - len(ascii_rows)) * lh // 2  # vertically centre the portrait
+    alh = round(len(lines) * lh / len(ascii_rows), 2)  # portrait line height
+    afs, acw = alh, alh * 0.6                          # portrait font size, char width
+    ax, ay = 15, 30 - lh + alh
+    tx = ax + ascii_cols * acw + 25
+    w, h = int(tx + WIDTH * cw + 15), len(lines) * lh + 25
     p = [
         f'<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,\'Courier New\',monospace" width="{w}px" height="{h}px" font-size="{fs}px">',
         '<style>@font-face{src:local("Consolas"),local("Consolas Bold");font-family:"ConsolasFallback";font-display:swap;-webkit-size-adjust:109%;size-adjust:109%}',
         f'.key{{fill:{t["key"]}}}.val{{fill:{t["val"]}}}.dot{{fill:{t["dot"]}}}.add{{fill:{t["add"]}}}.rem{{fill:{t["rem"]}}}text,tspan{{white-space:pre}}</style>',
         f'<rect width="{w}px" height="{h}px" fill="{t["bg"]}" rx="15"/>',
-        f'<text x="{ax}" y="{ay}" fill="{t["fg"]}">',
+        f'<text x="{ax}" y="{ay}" fill="{t["fg"]}" font-size="{afs}px">',
     ]
     for i, row in enumerate(ascii_rows):
-        p.append(f'<tspan x="{ax}" y="{ay + i * lh}">{escape(row)}</tspan>')
+        p.append(f'<tspan x="{ax}" y="{round(ay + i * alh, 2)}">{escape(row)}</tspan>')
     p.append(f'</text><text x="{tx}" y="30" fill="{t["fg"]}">')
     for i, segs in enumerate(lines):
         p.append(f'<tspan x="{tx}" y="{30 + i * lh}">')
