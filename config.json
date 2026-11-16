@@ -1,0 +1,29 @@
+{
+  "login": "sayyadsuzain9001",
+  "header": "suzain@sayyad",
+  "birthday": null,
+  "sections": [
+    [
+      ["OS", "Windows 11, Android, Linux"],
+      ["Uptime", "{uptime}"],
+      ["Host", "Sanjay Ghodawat University"],
+      ["Kernel", "B.Tech AI & ML, Technical Co-Head"],
+      ["IDE", "VS Code, Android Studio, Jupyter"]
+    ],
+    [
+      ["Languages.Programming", "Python, Dart, Kotlin, JS"],
+      ["Languages.Computer", "HTML, CSS, JSON, YAML, SQL"],
+      ["Languages.Real", "English, Hindi, Marathi"]
+    ],
+    [
+      ["Focus.AI", "NLP, Transformers, RecSys"],
+      ["Focus.Apps", "Flutter, Jetpack Compose"],
+      ["Now.Building", "{latest_repo}"]
+    ]
+  ],
+  "contact": [
+    ["Email.Personal", "sayyadsuzain9962@gmail.com"],
+    ["LinkedIn", "sayyad-suzain-bbab98298"],
+    ["Instagram", "sayyad_suzain_9001"]
+  ]
+}
